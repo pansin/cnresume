@@ -1,0 +1,130 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+
+/* Section Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation Link Styling */
+.nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link .nav-indicator {
+    width: 2rem;
+    height: 1px;
+    background-color: #4b5563; /* gray-600 */
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link .nav-text {
+    color: #9ca3af; /* gray-400 */
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover .nav-indicator,
+.nav-link.active .nav-indicator {
+    width: 4rem;
+    background-color: #60a5fa; /* blue-400 */
+}
+
+.nav-link:hover .nav-text,
+.nav-link.active .nav-text {
+    color: #f9fafb; /* gray-50 */
+}
+
+/* Mobile Menu */
+#sidebar-nav {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Professional Experience Timeline */
+.timeline-container {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background-color: #374151; /* gray-700 */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #1f2937; /* gray-800 */
+    border: 2px solid #374151; /* gray-700 */
+    transform: translateX(-50%);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item-content:hover ~ .timeline-dot {
+    background-color: #60a5fa; /* blue-400 */
+    border-color: #60a5fa; /* blue-400 */
+}
+
+/* Education Timeline */
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #374151; /* gray-700 */
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem; 
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    background-color: #60a5fa; /* blue-400 */
+    transform: translateX(-50%);
+    z-index: 10;
+}
