@@ -1,130 +1,94 @@
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+    --color-primary: #0A192F;
+    --color-secondary: #172a45;
+    --color-gold: #CCA43B;
+    --color-text-light: #CCD6F6;
+    --color-text-darker: #8892b0;
 }
 
-/* Custom Scrollbar */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #111827;
+    background: var(--color-primary);
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #374151;
+    background-color: var(--color-gold);
     border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #4b5563;
+    border: 2px solid var(--color-primary);
 }
 
-/* Section Fade-in Animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.bg-primary {
+    background-color: var(--color-primary);
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.text-text-light {
+    color: var(--color-text-light);
 }
 
-/* Navigation Link Styling */
-.nav-link {
-    transition: all 0.2s ease-in-out;
+.text-gold {
+    color: var(--color-gold);
 }
 
-.nav-link .nav-indicator {
-    width: 2rem;
-    height: 1px;
-    background-color: #4b5563; /* gray-600 */
-    transition: all 0.2s ease-in-out;
+.border-gold {
+    border-color: var(--color-gold);
 }
 
-.nav-link .nav-text {
-    color: #9ca3af; /* gray-400 */
-    transition: color 0.2s ease-in-out;
+.card-bg {
+    background-color: var(--color-secondary);
 }
 
-.nav-link:hover .nav-indicator,
-.nav-link.active .nav-indicator {
-    width: 4rem;
-    background-color: #60a5fa; /* blue-400 */
-}
-
-.nav-link:hover .nav-text,
-.nav-link.active .nav-text {
-    color: #f9fafb; /* gray-50 */
-}
-
-/* Mobile Menu */
-#sidebar-nav {
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Professional Experience Timeline */
-.timeline-container {
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-light);
     position: relative;
-    padding-left: 2.5rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
-.timeline-line {
+.section-title::after {
+    content: '';
     position: absolute;
+    bottom: 0;
     left: 0;
-    top: 0.5rem;
-    bottom: 0.5rem;
-    width: 2px;
-    background-color: #374151; /* gray-700 */
+    width: 50%;
+    height: 3px;
+    background-color: var(--color-gold);
 }
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
+#experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(204, 164, 59, 0.2);
 }
 
 .timeline-dot {
     position: absolute;
-    left: -2.5rem;
-    top: 0.5rem;
-    width: 1rem;
-    height: 1rem;
+    left: -33px; /* Adjust based on padding-left of parent */
+    top: 5px;
+    height: 10px;
+    width: 10px;
+    background-color: var(--color-gold);
     border-radius: 50%;
-    background-color: #1f2937; /* gray-800 */
-    border: 2px solid #374151; /* gray-700 */
-    transform: translateX(-50%);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border: 2px solid var(--color-primary);
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-item-content:hover ~ .timeline-dot {
-    background-color: #60a5fa; /* blue-400 */
-    border-color: #60a5fa; /* blue-400 */
-}
-
-/* Education Timeline */
-.education-timeline::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #374151; /* gray-700 */
-}
-
-.education-item::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 0.5rem; 
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 9999px;
-    background-color: #60a5fa; /* blue-400 */
-    transform: translateX(-50%);
-    z-index: 10;
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
 }

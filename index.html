@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘志诚 | 资深安全高管 · 行业思想领袖</title>
+    <title>刘志诚 - 资深安全高管 · 行业思想领袖</title>
+    <link href="style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-gray-200 font-[Noto Sans SC]">
-    <div class="flex flex-col lg:flex-row">
-        
-        <!-- Mobile Header -->
-        <header class="lg:hidden fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm z-40 flex justify-between items-center p-4 border-b border-gray-700">
-            <h1 class="text-xl font-bold text-white">刘志诚</h1>
-            <button id="mobile-menu-button" class="p-2">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+<body class="bg-primary text-text-light font-sans">
+
+    <div id="root" class="container mx-auto p-4 md:p-8 lg:p-12 max-w-6xl">
+
+        <header id="header" class="flex flex-col md:flex-row items-center gap-8 mb-12 md:mb-16 opacity-0">
+            <!-- Profile picture will be populated by JS -->
+            <div id="profile-pic-container" class="w-40 h-40 md:w-48 md:h-48 flex-shrink-0"></div>
+            <div id="header-info" class="text-center md:text-left">
+                <!-- Header info will be populated by JS -->
+            </div>
         </header>
 
-        <!-- Sidebar Navigation -->
-        <nav id="sidebar-nav" class="fixed top-0 left-0 h-full w-64 bg-gray-900 z-50 transform -translate-x-full lg:translate-x-0 lg:w-1/4 lg:max-w-xs xl:max-w-sm p-8 flex flex-col border-r border-gray-800">
-            <div class="flex-grow">
-                <div class="text-center lg:text-left mb-12">
-                    <h1 class="text-4xl font-bold text-white">刘志诚</h1>
-                    <p class="mt-2 text-lg text-blue-400">资深安全高管 · 行业思想领袖</p>
-                </div>
-                <ul id="nav-links" class="space-y-4">
-                    <!-- Nav links will be injected by JS -->
-                </ul>
-            </div>
-             <div class="text-xs text-gray-500 mt-8 text-center lg:text-left">
-                <p>&copy; 2025 刘志诚. All Rights Reserved.</p>
-                <p class="mt-1">Designed by Neo.</p>
-            </div>
-        </nav>
+        <main class="space-y-16">
 
-        <!-- Main Content -->
-        <main class="w-full lg:ml-[25%] lg:w-3/4 xl:w-[calc(100%-24rem)] p-6 md:p-12 pt-20 lg:pt-12">
-            <div class="max-w-4xl mx-auto space-y-24">
-                <section id="summary" class="scroll-mt-20 fade-in"></section>
-                <section id="competencies" class="scroll-mt-20 fade-in"></section>
-                <section id="experience" class="scroll-mt-20 fade-in"></section>
-                <section id="project" class="scroll-mt-20 fade-in"></section>
-                <section id="patents" class="scroll-mt-20 fade-in"></section>
-                <section id="leadership" class="scroll-mt-20 fade-in"></section>
-                <section id="education" class="scroll-mt-20 fade-in"></section>
-            </div>
+            <section id="summary" class="card-bg p-8 rounded-xl shadow-lg opacity-0">
+                <h2 class="section-title">核心摘要</h2>
+                <p id="summary-content" class="mt-4 text-base md:text-lg leading-relaxed"></p>
+            </section>
+
+            <section id="competencies" class="opacity-0">
+                <h2 class="section-title">核心能力</h2>
+                <div id="competencies-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Competency cards will be populated by JS -->
+                </div>
+            </section>
+
+            <section id="experience" class="opacity-0">
+                <h2 class="section-title">职业经历</h2>
+                <div id="experience-timeline" class="mt-6 relative border-l-2 border-gold/30 pl-8 space-y-12">
+                     <!-- Experience items will be populated by JS -->
+                </div>
+            </section>
+
+            <section id="education" class="opacity-0">
+                <h2 class="section-title">教育背景</h2>
+                <div id="education-list" class="mt-6 space-y-6">
+                    <!-- Education items will be populated by JS -->
+                </div>
+            </section>
+
+            <section id="patents" class="card-bg p-8 rounded-xl shadow-lg opacity-0">
+                <h2 class="section-title">专利与标准</h2>
+                <p id="patents-content" class="mt-4 text-base md:text-lg leading-relaxed"></p>
+            </section>
+
+            <section id="leadership" class="opacity-0">
+                <h2 class="section-title">社区领导力与行业认可</h2>
+                <div id="leadership-content" class="mt-6 space-y-6">
+                    <!-- Leadership content will be populated by JS -->
+                </div>
+            </section>
+            
+            <section id="expertise" class="opacity-0">
+                <h2 class="section-title">技术专长</h2>
+                <div id="expertise-tags" class="mt-6 flex flex-wrap gap-3">
+                    <!-- Expertise tags will be populated by JS -->
+                </div>
+            </section>
+
         </main>
+        
+        <footer class="text-center mt-16 text-sm text-text-light/50">
+            <p>刘志诚个人简历 &copy; <span id="current-year"></span></p>
+        </footer>
+
+        <div id="copy-notification" class="fixed bottom-8 right-8 bg-gold text-primary font-bold py-2 px-5 rounded-lg shadow-xl transition-transform transform translate-y-20 opacity-0">
+            已复制到剪贴板
+        </div>
+
     </div>
 
     <script type="module" src="script.js"></script>
